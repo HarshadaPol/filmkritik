@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.omertron.themoviedbapi.MovieDbException;
 import com.omertron.themoviedbapi.TheMovieDbApi;
+import com.omertron.themoviedbapi.enumeration.SearchType;
 import com.omertron.themoviedbapi.model.movie.MovieInfo;
+import com.omertron.themoviedbapi.model.tv.TVBasic;
 import com.omertron.themoviedbapi.model.tv.TVInfo;
 import com.omertron.themoviedbapi.results.ResultList;
 @Service
@@ -30,5 +32,8 @@ public class TvService {
 	
 	public ResultList<TVInfo> getTVAiringToday() throws MovieDbException{
 		return movieDB.getTVAiringToday(1, "en-US", null);
+	}
+	public ResultList<TVBasic> searchTV(String query, int pageNo, int firstDateYr, SearchType type) throws MovieDbException{
+		return movieDB.searchTV(query, pageNo,"en-US", firstDateYr, type);//(query, pageNo,"en-US", includeAdult, type);
 	}
 }

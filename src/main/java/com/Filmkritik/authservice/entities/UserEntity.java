@@ -18,6 +18,18 @@ public class UserEntity {
 	@JsonIgnore
 	private String password;
 
+	@Column
+	private String mobilenumber;
+	
+	@Column
+	private String address;
+	
+	@Column
+	private String firstName;
+	
+	@Column
+	private String lastName;
+	
 	@OneToOne(mappedBy = "userEntity")
 	private RefreshTokenEntity refreshTokenEntity;
 
@@ -57,5 +69,46 @@ public class UserEntity {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 
+	public String getMobileNumber() {
+		return mobilenumber;
+	}
+
+	public void setMobileNumber(String mobNo) {
+		this.mobilenumber = mobNo;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String addr) {
+		this.address = addr;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String fName) {
+		this.firstName = fName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lName) {
+		this.lastName = lName;
+	}
+	
+	public String getFullName() {
+		return getFirstName()+getLastName();
+	}
+
+	public void setFullName(String fName, String lName) {
+		this.firstName = fName;
+		this.lastName = lName;
+	}
 }
