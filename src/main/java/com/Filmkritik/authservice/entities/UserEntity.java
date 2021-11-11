@@ -19,7 +19,7 @@ public class UserEntity {
 	private String password;
 
 	@Column
-	private String mobilenumber;
+	private String phoneno;
 	
 	@Column
 	private String address;
@@ -72,11 +72,11 @@ public class UserEntity {
 	
 
 	public String getMobileNumber() {
-		return mobilenumber;
+		return phoneno;
 	}
 
 	public void setMobileNumber(String mobNo) {
-		this.mobilenumber = mobNo;
+		this.phoneno = mobNo;
 	}
 	
 	public String getAddress() {
@@ -108,7 +108,7 @@ public class UserEntity {
 	}
 
 	public void setFullName(String fName, String lName) {
-		this.firstName = fName;
-		this.lastName = lName;
+		setFirstName(fName);
+		setLastName(lName);
 	}
 }

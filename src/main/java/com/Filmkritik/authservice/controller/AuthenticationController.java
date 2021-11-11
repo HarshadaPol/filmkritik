@@ -36,6 +36,7 @@ import com.Filmkritik.authservice.dto.TokenRefreshRequest;
 import com.Filmkritik.authservice.dto.UserDto;
 import com.Filmkritik.authservice.entities.RefreshTokenEntity;
 import com.Filmkritik.authservice.entities.SecurityQuestionsEntity;
+import com.Filmkritik.authservice.entities.UserEntity;
 import com.Filmkritik.authservice.exception.AuthenticationException;
 import com.Filmkritik.authservice.exception.TokenRefreshException;
 import com.Filmkritik.authservice.repository.SecurityQuestionsRepository;
@@ -88,6 +89,13 @@ public class AuthenticationController {
 	public ResponseEntity<?> saveUser(@RequestBody UserDto user) throws Exception {
 		logger.info("Requested to register user: " + user.getUsername());
 		return ResponseEntity.ok(userDetailsService.save(user));
+	}
+	
+	@PostMapping(value = "/register")
+	public ResponseEntity<?> UpdateUser(@RequestBody UserDto user) throws Exception {
+		logger.info("Requested to update user details: " + user.getUsername());
+		//UserEntity userDetail = userRepo.findByUsername(username);
+		return ResponseEntity.ok(userDetailsService.update(user));
 	}
 	
 	@PostMapping(value = "/forgot/verifyUser")
